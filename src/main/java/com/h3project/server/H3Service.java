@@ -9,5 +9,9 @@ public class H3Service {
     @Autowired
     H3Dao h3Dao;
 
+    public String getGeojsonByQuery(String query) {
+        return this.h3Dao.getGeojsonByQuery(query);
+    }
+
 
 }
