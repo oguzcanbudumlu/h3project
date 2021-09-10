@@ -32,9 +32,27 @@ class App extends React.Component {
 
     render() {
         return (
-            <div ref={this.mapContainer} className="map-container">
+            <div>
+                {this.renderMap()}
+                {this.renderCoordinatesSidebar()}
             </div>
         );
+    }
+
+    renderMap() {
+        return(
+            <div ref={this.mapContainer} className="map-container">
+            </div>
+        )
+    }
+
+    renderCoordinatesSidebar() {
+        const { lng, lat, zoom } = this.state;
+        return(
+            <div className="sidebar">
+                Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+            </div>
+        )
     }
 
     setMoveEvent() {

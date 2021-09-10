@@ -1,3 +1,7 @@
 .map-container {
     height: 80vh;
 }
+
+.sidebar {
+    background: red;
+}
