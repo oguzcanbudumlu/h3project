@@ -1,28 +1,39 @@
 import React from "react";
-import logo from './logo.svg';
 import './App.css';
+import maplibre from 'maplibre-gl';
+
+maplibre.accessToken = 'pk.eyJ1IjoiaWJyYWhpbXNhcmljaWNlayIsImEiOiJjOTY5MzE2YzVkMmY4ZjkxNDZiOWNkMGQ4MDJiZTE3MCJ9.BnJGGOoXAdwicB9shSV_Qg';
 
 class App extends React.Component {
-  render() {
-    return (
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-        </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            lng: 35,
+            lat: 39,
+            zoom: 5
+        }
+
+        this.mapContainer = React.createRef();
+    }
+
+    componentDidMount() {
+        const { lng, lat, zoom } = this.state;
+        const map = new maplibre.Map({
+            container: this.mapContainer.current,
+            style: 'mapbox://style/mapbox/dark-v10',
+            center: [lng, lat],
+            zoom: zoom
+        });
+
+        this.map = map;
+    }
+
+    render() {
+        return (
+            <div ref={this.mapContainer}>
+            </div>
+        );
+    }
 }
 
 export default App;
