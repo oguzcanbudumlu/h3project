@@ -1,6 +1,7 @@
 import React from "react";
 import './App.css';
 import maplibre from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
 
 maplibre.accessToken = 'pk.eyJ1IjoiaWJyYWhpbXNhcmljaWNlayIsImEiOiJjOTY5MzE2YzVkMmY4ZjkxNDZiOWNkMGQ4MDJiZTE3MCJ9.BnJGGOoXAdwicB9shSV_Qg';
 
@@ -30,7 +31,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div ref={this.mapContainer}>
+            <div ref={this.mapContainer} className="map-container">
             </div>
         );
     }
