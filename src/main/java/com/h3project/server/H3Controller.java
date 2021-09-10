@@ -14,4 +14,9 @@ public class H3Controller {
     public String getGeojsonByQueryTest() {
         return this.h3Service.getGeojsonByQuery("select * from quakes_tr");
     }
+
+    @RequestMapping(value = "/async-test", method = RequestMethod.POST)
+    public String testAsync() {
+        return "from testAsync controller";
+    }
 }
