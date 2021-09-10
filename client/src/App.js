@@ -27,6 +27,7 @@ class App extends React.Component {
         });
 
         this.map = map;
+        this.setMoveEvent();
     }
 
     render() {
@@ -34,6 +35,16 @@ class App extends React.Component {
             <div ref={this.mapContainer} className="map-container">
             </div>
         );
+    }
+
+    setMoveEvent() {
+        this.map.on('move', () => {
+            this.setState({
+                lng: this.map.getCenter().lng.toFixed(4),
+                lat: this.map.getCenter().lat.toFixed(4),
+                zoom: this.map.getZoom().toFixed(2)
+            })
+        });
     }
 }
 
