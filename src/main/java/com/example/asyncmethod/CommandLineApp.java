@@ -20,6 +20,5 @@ public class CommandLineApp implements CommandLineRunner {
         LOG.info("CommandLineApp run method");
         CompletableFuture<User> user = githubLookupService.findUser("oguzcanbudumlu");
         CompletableFuture.allOf(user);
-        System.out.println(user.get());
     }
 }

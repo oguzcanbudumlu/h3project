@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.concurrent.CompletableFuture;
 
+
 @Service
 public class GithubLookupService {
 
@@ -25,10 +26,9 @@ public class GithubLookupService {
 
     @Async
     public CompletableFuture<User> findUser(String user) throws InterruptedException {
+        LOG.info(AsyncMethodApplication.ANSI_RED + Thread.currentThread().getName() + AsyncMethodApplication.ANSI_RESET );
         String url = String.format("https://api.github.com/users/%s", user);
         User results = restTemplate.getForObject(url, User.class);
-        System.out.println(url);
-        System.out.println(results);
         Thread.sleep(1000L);
         return CompletableFuture.completedFuture(results);
     }
