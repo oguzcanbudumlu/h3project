@@ -12,7 +12,8 @@ public class ServerApplication {
 
 	public static void main(String[] args) {
 		LOG.info("Server app is starting");
-		SpringApplication.run(ServerApplication.class, args);
+		LOG.info(Thread.currentThread().getName());
+		SpringApplication.run(ServerApplication.class, args).close();
 		LOG.info("Server app is ending");
 	}
 
