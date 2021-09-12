@@ -4,27 +4,27 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
-    private String name;
-    private String blog;
+    private String login;
+    private String id;
 
-    public String getName() {
-        return name;
+    public String getLogin() {
+        return login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getBlog() {
-        return blog;
+    public String getId() {
+        return id;
     }
 
-    public void setBlog(String blog) {
-        this.blog = blog;
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
-        return "User [name=" + name + ", blog=" + blog + "]";
+        return "User [name=" + login + ", blog=" + id + "]";
     }
 }
