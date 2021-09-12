@@ -20,7 +20,7 @@ public class H3Dao {
         return jdbcTemplate.queryForObject(geojsonQuery, String.class);
     }
 
-    public String asyncTest(String query) {
+    public String testAsync(String query) {
         String geojsonQuery = String.format(geojsonTemplate, query);
         return jdbcTemplate.queryForObject(geojsonQuery, String.class);
     }

@@ -20,7 +20,7 @@ public class H3CommandLineApp implements CommandLineRunner {
         LOG.info("H3CommandLineApp run method is starting");
 
         long start = System.currentTimeMillis();
-        CompletableFuture<Object> geojson = h3Service.asyncTest("select * from quakes_tr");
+        CompletableFuture<Object> geojson = h3Service.testAsync("select * from quakes_tr");
         CompletableFuture.allOf(geojson);
         long end = System.currentTimeMillis();
 

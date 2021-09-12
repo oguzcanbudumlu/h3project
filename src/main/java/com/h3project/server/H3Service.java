@@ -17,8 +17,8 @@ public class H3Service {
     }
 
     @Async
-    public CompletableFuture<Object> asyncTest(String query) throws InterruptedException {
-        String geojson = h3Dao.asyncTest(query);
+    public CompletableFuture<Object> testAsync(String query) throws InterruptedException {
+        String geojson = h3Dao.testAsync(query);
         Thread.sleep(3000L);
         return CompletableFuture.completedFuture(geojson);
     }
