@@ -1,5 +1,6 @@
 package com.example.asyncmethod;
 
+import com.LogColors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -26,7 +27,7 @@ public class GithubLookupService {
 
     @Async
     public CompletableFuture<User> findUser(String user) throws InterruptedException {
-        LOG.info(AsyncMethodApplication.ANSI_RED + Thread.currentThread().getName() + AsyncMethodApplication.ANSI_RESET );
+        LOG.info(LogColors.ANSI_RED + Thread.currentThread().getName() + LogColors.ANSI_RESET );
         String url = String.format("https://api.github.com/users/%s", user);
         User results = restTemplate.getForObject(url, User.class);
         Thread.sleep(1000L);

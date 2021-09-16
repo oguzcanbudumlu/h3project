@@ -1,5 +1,6 @@
 package com.example.asyncmethod;
 
+import com.LogColors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,22 +19,14 @@ public class AsyncMethodApplication  implements CommandLineRunner {
     private static Logger LOG = LoggerFactory
             .getLogger(AsyncMethodApplication.class);
 
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
+
 
     @Autowired
     private GithubLookupService githubLookupService;
 
     public static void main(String[] args) {
         LOG.info("Start");
-        LOG.info(ANSI_RED + Thread.currentThread().getName() + ANSI_RESET);
+        LOG.info(LogColors.ANSI_RED + Thread.currentThread().getName() + LogColors.ANSI_RESET);
         SpringApplication.run(AsyncMethodApplication.class, args).close();
         LOG.info("End");
     }
